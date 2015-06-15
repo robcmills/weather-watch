@@ -1,4 +1,12 @@
 <div class='container-fluid'>
   <h2 id="title">Welcome to Locus Weather</h2>
+  <ul class="nav nav-tabs">
+    {{#link-to 'location' tagName='li' href=false}}
+      <a href="#">Location</a>
+    {{/link-to}}
+    {{#link-to 'weather' tagName='li' href=false}}
+      <a href="#">Weather</a>
+    {{/link-to}}    
+  </ul>
   {{outlet}}
 </div>
