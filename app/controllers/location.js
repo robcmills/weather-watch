@@ -7,6 +7,11 @@ export default Ember.Controller.extend({
   longitude: Ember.computed.alias('position.coords.longitude'),
   position: null,
 
+  init: function() {
+    this._super();
+    this.getLocation();
+  },
+
   mapUrl: function(){ 
     var lat = this.get('latitude');
     var longitude = this.get('longitude');
