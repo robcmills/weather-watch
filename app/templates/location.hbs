@@ -1,7 +1,31 @@
 
-<p>Enter a location:</p>
+{{#unless isGeolocationSupported}}
+<div class="alert alert-danger" role="alert">
+  Geolocation is not supported by this browser
+</div>
+{{/unless}}
 
-<p>Latitude: {{latitude}}</p>
-<p>Longitude: {{longitude}}</p>
+<form>
+  <div class="form-group col-xs-4">
+    <p>Enter a location:</p>
+ 
+    <button class='use-current btn btn-default' {{action 'useCurrent'}}>
+      {{#if isLocating}}Locating...{{else}}Use current location{{/if}}
+    </button>
+
+    <div class='lat-input-div'>
+      <label for="lat-input">Latitude</label>
+      {{input id='lat-input' type='text' 
+        value=latitude class='form-control'}}
+    </div>
+    <div class='long-input-div'>
+      <label for="long-input">Longitude</label>
+      {{input id='long-input' type='text' 
+        value=longitude class='form-control'}}
+    </div>
+  </div>
+</form>
+
+<img class='google-map' src='{{mapUrl}}'>
 
 {{outlet}}
