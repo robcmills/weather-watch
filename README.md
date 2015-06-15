@@ -1,8 +1,7 @@
 # weather-watch
 simple app to view and analyze weather for a location
 
-
-This README outlines the details of collaborating on this Ember application.
+Built with Ember @version 1.12.0 
 
 ## Prerequisites
 
