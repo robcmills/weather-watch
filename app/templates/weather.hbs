@@ -9,13 +9,10 @@
     End date:
     {{pikaday-input value=endAt}}
   </label>
+  <button class='btn btn-primary' 
+    {{action 'update' target='controllers.api'}}>Update</button>
 </div>
-
-
 
 <div class='visualization'>
 </div>
 
-<button class='btn btn-primary' {{action 'update'}}>Update</button>
-
-{{outlet}}
