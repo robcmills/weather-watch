@@ -1,3 +1,19 @@
 
-<h3>Weather</h3>
+<div class='date-range'>
+  <h4>Enter a date range:</h4>
+  <label>
+    Start date:
+    {{pikaday-input value=startAt}}
+  </label>
+  <label>
+    End date:
+    {{pikaday-input value=endAt}}
+  </label>
+</div>
+
+
+
+<div class='visualization'>
+</div>
+
 {{outlet}}

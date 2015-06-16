@@ -8,20 +8,18 @@
 <h4>Enter a location:</h4>
 
 <form>
-  <div class="form-group col-xs-4">
-    <button class='use-current btn btn-default' {{action 'useCurrent'}}>
+  <div class="col-xs-5">
+    <button class='use-current btn btn-default btn-xs' {{action 'useCurrent'}}>
       {{#if isLocating}}Locating...{{else}}Set to current location{{/if}}
     </button>
 
-    <div class='lat-input-div'>
+    <div class='coord-input-div'>
       <label for="lat-input">Latitude</label>
-      {{input id='lat-input' type='text' 
-        value=latitude class='form-control'}}
+      {{input id='lat-input' type='text' value=latitude}}
     </div>
-    <div class='long-input-div'>
+    <div class='coord-input-div'>
       <label for="long-input">Longitude</label>
-      {{input id='long-input' type='text' 
-        value=longitude class='form-control'}}
+      {{input id='long-input' type='text' value=longitude}}
     </div>
   </div>
 </form>
