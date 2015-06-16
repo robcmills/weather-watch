@@ -29,12 +29,12 @@
     {{/nf-x-axis}}
 
     {{#nf-y-axis}}
-      <text>{{tick.value}}</text>
+      <text>{{tick.value}}ºF</text>
     {{/nf-y-axis}}
 
     {{#nf-graph-content}}
       {{nf-line
-        data=graphData
+        data=controllers.weathers.graphData
         xprop="x"
         yprop="y"
         interpolator="monotone"}}
