@@ -37,18 +37,14 @@ export default Ember.Controller.extend({
 
   actions: {
     update: function() {
-      console.log('update');
       this.set('isUpdating', true);
       var self = this;
       this.set('jqxhr', Ember.$.getJSON(this.get('apiUrl'), function(json) {
-          console.log('success', json);
         }).done(function(json) {
-          console.log('done', json);
           self.set('controllers.weather.json', json);
         }).fail(function(jqxhr, textStatus, error) {
-          console.log('fail', textStatus, error);
+          console.error('fail', textStatus, error);
         }).always(function() {
-          console.log('always');
           self.set('isUpdating', false);
         })
       );
