@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
   endAt: Ember.computed.oneWay('controllers.weather.endAt'),
   lat: Ember.computed.oneWay('controllers.location.latitude'),
   lon: Ember.computed.oneWay('controllers.location.longitude'),
+  isUpdating: false,
 
   unixStart: function() {
     var startAt = this.get('startAt');
@@ -37,6 +38,7 @@ export default Ember.Controller.extend({
   actions: {
     update: function() {
       console.log('update');
+      this.set('isUpdating', true);
       var self = this;
       this.set('jqxhr', Ember.$.getJSON(this.get('apiUrl'), function(json) {
           console.log('success', json);
@@ -47,6 +49,7 @@ export default Ember.Controller.extend({
           console.log('fail', textStatus, error);
         }).always(function() {
           console.log('always');
+          self.set('isUpdating', false);
         })
       );
     }

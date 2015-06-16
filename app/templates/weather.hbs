@@ -12,7 +12,10 @@
   </div>
   
   <button class='btn btn-primary btn-xs' 
-    {{action 'update' target='controllers.api'}}>Update</button>
+    disabled={{controllers.api.isUpdating}}
+    {{action 'update' target='controllers.api'}}>
+      {{#if controllers.api.isUpdating}}Updating...{{else}}Update{{/if}}
+  </button>
 </div>
 
 <div class='visualization col-xs-4'>
