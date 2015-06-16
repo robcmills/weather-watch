@@ -1,18 +1,45 @@
 
-<div class='date-range'>
-  <h4>Enter a date range:</h4>
-  <label>
-    Start date:
+<h4>Enter a date range:</h4>
+<div class='date-range col-xs-3'>
+  <div class='input-div'>
+    <label>Start date:</label>
     {{pikaday-input value=startAt}}
-  </label>
-  <label>
-    End date:
+  </div>
+  
+  <div class='input-div'>
+    <label>End date:</label>
     {{pikaday-input value=endAt}}
-  </label>
-  <button class='btn btn-primary' 
+  </div>
+  
+  <button class='btn btn-primary btn-xs' 
     {{action 'update' target='controllers.api'}}>Update</button>
 </div>
 
-<div class='visualization'>
+<div class='visualization col-xs-4'>
+  {{#nf-graph
+    width=800
+    height=300
+    showLanes=true
+    showFrets=true
+    paddingTop=10
+    paddingRight=10}}
+
+    {{#nf-x-axis tickCount=5}}
+      <text>{{tick.value}}</text>
+    {{/nf-x-axis}}
+
+    {{#nf-y-axis}}
+      <text>{{tick.value}}</text>
+    {{/nf-y-axis}}
+
+    {{#nf-graph-content}}
+      {{nf-line
+        data=graphData
+        xprop="x"
+        yprop="y"
+        interpolator="monotone"}}
+    {{/nf-graph-content}}
+
+  {{/nf-graph}}
 </div>
 

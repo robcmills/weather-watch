@@ -6,23 +6,20 @@
 {{/unless}}
 
 <h4>Enter a location:</h4>
-
-<form>
-  <div class="col-xs-5">
-    <button class='use-current btn btn-default btn-xs' {{action 'useCurrent'}}>
-      {{#if isLocating}}Locating...{{else}}Set to current location{{/if}}
-    </button>
-
-    <div class='coord-input-div'>
-      <label for="lat-input">Latitude</label>
-      {{input id='lat-input' type='text' value=latitude}}
-    </div>
-    <div class='coord-input-div'>
-      <label for="long-input">Longitude</label>
-      {{input id='long-input' type='text' value=longitude}}
-    </div>
+<div class="col-xs-3">
+  <div class='input-div'>
+    <label for="lat-input">Latitude</label>
+    {{input id='lat-input' type='text' value=latitude}}
   </div>
-</form>
+  <div class='input-div'>
+    <label for="long-input">Longitude</label>
+    {{input id='long-input' type='text' value=longitude}}
+  </div>
+
+  <button class='use-current btn btn-default btn-xs' {{action 'useCurrent'}}>
+    {{#if isLocating}}Locating...{{else}}Set to current location{{/if}}
+  </button>
+</div>
 
 <img class='google-map' src='{{mapUrl}}'>
 
